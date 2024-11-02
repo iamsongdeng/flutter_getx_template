@@ -15,7 +15,9 @@ Dart：3.5.1
 也可以使用 visual studio code 创建。  
 或者直接用命令行创建。   
 ### 3. 将 flutter application 创建的文件全部拷贝到 github 库的本地克隆目录。  
---【 <font color=teal>分支Step-0</font> 】  
+```  
+! 【分支Step-0】
+```   
 拷贝所有文件，然后提交到github库里，二者合一，完成初始化。   
 编译工程，程序正常启动。  
 ### 4. 工程lib目录下的目录结构,调整目录结构    
