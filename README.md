@@ -15,6 +15,12 @@ Dart：3.5.1
 也可以使用 visual studio code 创建。  
 或者直接用命令行创建。   
 ### 3. 将 flutter application 创建的文件全部拷贝到 github 库的本地克隆目录。  
+\`\`\`diff
+- red
++ green
+! orange
+# gray
+\`\`\`
 ```  
 +【分支Step-0】
 ```   
