@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:get/get.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -8,12 +10,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _counter = 0;
+  final RxInt _counter = 0.obs;
 
   void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+    _counter.value++;
   }
 
   @override
@@ -30,10 +30,10 @@ class _HomePageState extends State<HomePage> {
             const Text(
               'You have pushed the button this many times:',
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+            Obx(() => Text(
+                  '${_counter.value}',
+                  style: Theme.of(context).textTheme.headlineMedium,
+                )),
           ],
         ),
       ),

@@ -4,6 +4,7 @@ import 'package:flutter_getx_template/pages/home/my_home_page.dart';
 import 'package:flutter_getx_template/pages/home/home_page.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   AppGlobal.init().then((_) => runApp(const MyApp()));
 }
 

@@ -31,6 +31,9 @@ common\global 是全局类的目录。
 common\utils 是工具类的目录。  
 common\routers 是路由相关内容。  
 ### 5. 引入 GetX  
-- 新建文件pages\home\home_page.dart，将main.dart文件中的MyHomePage放到home_page.dart中并改名为HomePage。  
+- 新建文件pages\home\my_home_page.dart，将main.dart文件中的MyHomePage放到my_home_page.dart。  
+- 新建文件pages\home\home_page.dart，将MyHomePage拷贝一份放到home_page.dart中并改名为HomePage。  
 - 新建文件common\global\app_global.dart，新建AppGlobal类，并创建init方法。  
 - 修改main.dart文件中的main()方法。  
+- flutter pub add get  
+- 修改HomePage，使用GetX。  
