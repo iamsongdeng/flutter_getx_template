@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx_template/pages/settings/settings2_page.dart';
+import 'package:flutter_getx_template/pages/settings/settings_page.dart';
 
 import 'package:get/get.dart';
 
@@ -25,7 +27,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             const Text(
               'You have pushed the button this many times:',
@@ -34,6 +36,24 @@ class _HomePageState extends State<HomePage> {
                   '${_counter.value}',
                   style: Theme.of(context).textTheme.headlineMedium,
                 )),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SettingsPage()),
+                  );
+                },
+                child: const Text('Go to Settings')),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const Settings2Page()),
+                  );
+                },
+                child: const Text('Go to Settings222')),
           ],
         ),
       ),

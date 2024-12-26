@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_template/common/global/app_global.dart';
-import 'package:flutter_getx_template/pages/home/my_home_page.dart';
 import 'package:flutter_getx_template/pages/home/home_page.dart';
 
 void main() {
