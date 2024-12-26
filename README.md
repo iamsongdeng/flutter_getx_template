@@ -36,7 +36,7 @@ common\routers 是路由相关内容。
 - 新建文件common\global\app_global.dart，新建AppGlobal类，并创建init方法。  
 - 修改main.dart文件中的main()方法。  
 - flutter pub add get  
-- 修改HomePage，使用GetX（obs/Obx）。
+- 修改HomePage，使用GetX（obs/Obx）。  
 --【[分支Step-1](https://github.com/iamsongdeng/flutter_getx_template/tree/step-1)】  
 ### 6. 使用 GetxController    
 - 新建文件夹pages\settings，在settting目录下新建文件settings_page.dart，settings_controller.dart。  
@@ -44,5 +44,5 @@ common\routers 是路由相关内容。
 - controller = Get.put(SettingsController());    
 - obs，Obx，GetBuilder<>，GetX<>。
 - 注意所注入的SettingsController实例的生命周期。依赖注入函数Get.put，注入的类(SettingsController)会单例化(isSingleton: true)，单例化的实例不会自动销毁，需要调用Get.delete来删除。  
---【[分支Step-2](https://github.com/iamsongdeng/flutter_getx_template/tree/step-2)】
+--【[分支Step-2](https://github.com/iamsongdeng/flutter_getx_template/tree/step-2)】  
 
