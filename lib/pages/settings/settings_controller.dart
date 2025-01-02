@@ -23,10 +23,6 @@ class SettingsController extends GetxController {
     super.onClose();
   }
 
-  onDeleted() {
-    print('SettingsController onDeleted');
-  }
-
   void incrementCounter() {
     counter.value++;
   }

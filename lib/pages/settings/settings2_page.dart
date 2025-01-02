@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'settings_controller.dart';
 
+///在Widget的build方法中使用GetBuilder来初始化controller
+///当页面销毁时，GetBuilder会自动释放controller
 class Settings2Page extends StatefulWidget {
   const Settings2Page({super.key});
 
@@ -15,14 +17,14 @@ class _Settings2PageState extends State<Settings2Page> {
   @override
   void initState() {
     super.initState();
-    print('SettingsPage initState');
+    print('Settings222Page initState');
     //controller = Get.put(SettingsController());
   }
 
   @override
   void dispose() {
     super.dispose();
-    print('SettingsPage dispose');
+    print('Settings222Page dispose');
     //Get.delete<SettingsController>();
   }
 

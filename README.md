@@ -45,4 +45,13 @@ common\routers 是路由相关内容。
 - obs，Obx，GetBuilder<>，GetX<>。
 - 注意所注入的SettingsController实例的生命周期。依赖注入函数Get.put，注入的类(SettingsController)会单例化(isSingleton: true)，单例化的实例不会自动销毁，需要调用Get.delete来删除。  
 --【[分支Step-2](https://github.com/iamsongdeng/flutter_getx_template/tree/step-2)】  
+### 6. 使用 GetMaterialApp  
+- 将main.dart中的 MaterialApp，替换为 GetMaterialApp  
+- 新建common/routers目录，并新建route_names.dart和route_pages.dart  
+- 新建pages/login目录，并新建login_controller.dart、login_page.dart、login_binding.dart  
+- 新建pages/login/register目录，并新建register_controller.dart、signup_page.dart、verifycode_page.dart、setpwd_page.dart   
+- 使用Getx的路由管理，并展示在路由管理中使用控制器的三中方式  
+- 在路由中注入的控制器，默认情况下在路由退出时会清理控制器  
+--【[分支Step-3](https://github.com/iamsongdeng/flutter_getx_template/tree/step-3)】  
+
 

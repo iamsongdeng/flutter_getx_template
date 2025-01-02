@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+///这个是新建flutter项目时默认的首页
+///
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 

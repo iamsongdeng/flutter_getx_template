@@ -1,0 +1,25 @@
+-GetX中依赖注入函数Get.put，注入的类(通常是GetxController)会单例化(isSingleton: true)
+（在未使用tag参数时，以类名为key对应单例化的实例；使用tag参数后，以类名+tag为Key）
+通过GetX注入的实例，如果需要销毁实例，需要调用Get.delete来删除，单例化的实例不会自动销毁。
+不过GetX也提供了智能管理(SmartManagement)来辅助管理注入，可实现限定条件下的自动创建，自动销毁。
+
+1.通过GetBuilder<>/GetX<>的init注入的实例，在GetBuilder销毁时会销毁注入的实例。
+    注：必须是在GetBuilder的init中实际实例化后注入的才行，
+        因为在GetBuilder的init中也会是去获取单例化的实例。
+        也就是说如果之前已经实例化了，在init中就会直接使用，GetBuilder销毁时不会销毁单例
+2.通过Get路由binding注入的实例，在路由回退时会销毁注入的实例。
+       注：必须是在路由binding中实际实例化注入的，而且路由导航需要使用Get体系的函数，回退可以不用Get体系的函数
+	(之前的资料大多显示，回退也需要使用Get体系的函数，或者需要监控路由汇报给Get。现在已经不用了，当使用GetMaterialApp时Get已经自己监控了路由)
+	(但是在binding中实际实例化注入是必须的，否则不能自动销毁。(比如在路由前先一步put注入了，回退路由不能自动销毁))
+	另外，路由binding的使用也有多种方式：
+	a.直接在GetPage的bingding上使用BindingsBuilder。
+	b.实现一个Bindings的类，在GetPage的bingding上使用。
+	c.使用GetMaterialApp的initialBinding进行全局绑定。通过全局绑定时需要使用Get.lazyPut的方式，并且设置fenix: true。
+	  （fenix: true的作用是可多次实例化然后注入，因为使用的是GetMaterialApp的initialBinding，Get.lazyPut只会被执行一次）
+3.通过Get路由进入的页面(实际是被GetPage包裹后的页面)，在页面中注入的实例，当路由回退页面销毁时会自动销毁注入的实例。
+
+
+另外，有几个使用GetxController的点需要注意一下：
+1.GetxController类中，使用onInit，onReady，onClose，不能使用dispose，dispose不会被调用。
+2.在使用GlobalControllerBinding设置了lazyPut后，（不论有没有实际实例化）在调用Get.isRegistered时会返回true，Get.find会实际实例化。
+3.由于第2点，在页面中Get.find控制器时，当页面和控制器一一对应的关系时，可在页面成员变量初始化时直接绑定控制器，即直接在变量定义时赋值final RecyclebinController logic = Get.find()。但是在使用一些需要共享数据的控制器时，最好是采用late DevicesController logic的方式，在使用前再获取值logic = Get.find()。

@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx_template/common/index.dart';
+import 'package:flutter_getx_template/pages/login/login_controller.dart';
 import 'package:get/get.dart';
 import 'settings_controller.dart';
 
+///这个是展示未使用GetMaterialApp时，只使用了GetX的状态管理，
+///使用GetxController, obs, Obx, GetBuilder, GetX
+///在页面类的成员变量中使用Get.put()来创建controller，
+///然后在dispose()中使用Get.delete()来释放controller(不会自动释放)
+///如果使用了Getx的路由管理，当页面被pop掉时，会自动释放controller
+///在dispose()中就不需要调用Get.delete()释放controller了，
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
 
@@ -10,13 +18,13 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  late SettingsController controller;
+  SettingsController controller = Get.put(SettingsController());
 
   @override
   void initState() {
     super.initState();
     print('SettingsPage initState');
-    controller = Get.put(SettingsController());
+    //controller = Get.put(SettingsController());
   }
 
   @override
@@ -42,6 +50,13 @@ class _SettingsPageState extends State<SettingsPage> {
                   Navigator.pop(context);
                 },
                 child: const Text('Go to Home')),
+            IconButton(
+              onPressed: () {
+                Get.put<LoginController>(LoginController());
+                Get.toNamed(RouteNames.login);
+              },
+              icon: const Icon(Icons.person_2),
+            ),
             const Spacer(),
             _buildName(),
             _buildEmail(),
